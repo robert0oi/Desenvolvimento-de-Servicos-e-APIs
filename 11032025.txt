@@ -1,4 +1,4 @@
-Professor Adalto.
+Professor Adalto. @assparremberger
 
 Aulas focadas em JS com foco em back-end.
 Api's e serviços RESTful.
