@@ -1,6 +1,5 @@
 $("#minhaDiv").html("Olá <i>Pessoal</i>")
 
-$("#botao").on(function() {
-    // $("#minhaDiv").hide
+$("#botao").on( "click", function(){
     $("#minhaDiv").toggle()
 })
