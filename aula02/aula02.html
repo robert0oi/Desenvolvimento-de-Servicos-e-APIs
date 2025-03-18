@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.7.1.min.js"></script>
+    <title>Aula 02 - JS e JQuery</title>
+</head>
+<body>
+    <!-- Última aula com o script dentro da estrutura do HTML  -->
+    <script>
+        document.write("Bom dia!")
+        console.log("Este é um log, escrito no console.")
+
+        // Objetos
+        pessoa = {
+            nome : "Maria",
+            idade : 25,
+            altura : 1.80,
+            // Vetores
+            formacoes : ["Técnico em Química", "Graduação em Química", "Mestrado em Química", "Doutorado em Química"],
+            casado : true,
+            conjuge : { nome : "José", idade : 23 },
+            filhos : [
+                { nome : "Júlia", idade : 5, },
+                { nome : "Dorival", idade : 3}
+            ],
+            endereco : null,
+            getInfos : function(){
+                return this.nome + " - Idade: " + this.idade
+            }
+        }
+
+        </script>
+
+</body>
+</html>
