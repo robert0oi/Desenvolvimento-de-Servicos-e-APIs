@@ -11,6 +11,6 @@
     } ,
     "opcionais" : [
         { "nome" : "Ar" , "marca" : "GelaMais"} ,
-        { "nome" : "Rastreador" , "marca" : "RastreiaMais"}s
+        { "nome" : "Rastreador" , "marca" : "RastreiaMais"}
     ]
 }
