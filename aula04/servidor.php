@@ -28,6 +28,24 @@ if(isset($_REQUEST["consultar"] ) ){
     }    
 }
 
+if(isset($_REQUEST["excluirId"])){
+    $id = $_GET["idProduto"];
+    try {
+        $conn = mysqli_connect($local, $user, $senha, $banco);
+        if( $conn ){
+            $sql = "DELETE FROM produto WHERE id = $id ";
+            mysqli_query($conn, $sql);
+            mysqli_close($conn);
+            echo '{"resposta" : "Produto excluído com sucesso!" }';
+        }
+        else{
+            echo ' { "resposta" : "Erro ao tentar conectar no servidor... } ';
+        }
+    } catch (\Throwable $th) {
+        echo ' { "resposta" : "Erro no servidor..." } ';
+    }
+}
+
 
 if(isset($_REQUEST["inserir"] ) ){
     

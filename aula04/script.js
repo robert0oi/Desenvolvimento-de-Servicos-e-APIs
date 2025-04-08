@@ -48,17 +48,19 @@ function consultar() {
                 alert(objJSON.resposta);
             }
             else{
-                txt = '<table border="1">';
+                txt = '<table border="1" style="text-align: center">';
                 txt += '<tr>';
                 txt += '    <th>ID</th>';
                 txt += '    <th>Nome</th>';
                 txt += '    <th>Preço</th>';
+                txt += '    <th>Excluir</th>';
                 txt += '</tr>';
                 objJSON.produtos.forEach( prod => { // For Each, laço de repetição para vetores.
                     txt += '<tr>';
                     txt += '    <td>' + prod.id + '</td>';
                     txt += '    <td>' + prod.nome + '</td>';
                     txt += '    <td>' + prod.preco + '</td>';
+                    txt += '    <td> <button onclick="excluirId(' + prod.id + ')"> 🗑️ </button> </td>';
                     txt += '</tr>';
                 });
             };
@@ -73,6 +75,25 @@ function consultar() {
     req.open("GET", "servidor.php?consultar", true)
     req.send()
 
+}
+
+function excluirId( id ){
+
+    var req = new XMLHttpRequest();
+
+        req.onreadystatechange = function() {
+            if( this.readyState == 4 && this.status == 200 ){
+                var objJSON = JSON.parse(this.responseText);
+                if(objJSON.resposta){
+                    alert(objJSON.resposta);
+                    consultar();
+                } }
+            else if( this.readyState == 4) {
+                alert( this.status + " - " + this.statusText );
+            }
+        };
+        req.open("GET", "servidor.php?excluirId&idProduto=" + id, true);
+        req.send();
 }
 
 function salvar() {
