@@ -41,7 +41,6 @@ req.send()
 function consultar() {
     var req = new XMLHttpRequest();
 
-
     req.onreadystatechange = function() {
         if( this.readyState == 4 && this.status == 200 ){
             var objJSON = JSON.parse(this.responseText);
@@ -73,5 +72,38 @@ function consultar() {
     
     req.open("GET", "servidor.php?consultar", true)
     req.send()
+
+}
+
+function salvar() {
+    var nome = document.getElementById("txtNome").value
+    if(nome == "") alert("O campo NOME é obrigatório");
+    else{
+        var preco = document.getElementById("txtPreco").value
+        vPreco = 0.0;
+        if (preco != ""){
+            preco = preco.replace("," , ".")
+            vPreco = parseFloat(preco)
+        } 
+        var req = new XMLHttpRequest();
+
+        req.onreadystatechange = function() {
+            if( this.readyState == 4 && this.status == 200 ){
+                var objJSON = JSON.parse(this.responseText);
+                if(objJSON.resposta){
+                    alert(objJSON.resposta);
+                }
+                else{ // Aqui é o caminho feliz.
+                    consultar();
+                    alert("ID gerado: " + objJSON.id );
+                }
+            }else if( this.readyState == 4) {
+                alert( this.status + " - " + this.statusText );
+            }
+        };
+        req.open("POST", "servidor.php?inserir", true);
+        req.setRequestHeader("Content-type" , "application/x-www-form-urlencoded");
+        req.send("name=" + nome + "&price=" + vPreco);
+    }
 
 }
