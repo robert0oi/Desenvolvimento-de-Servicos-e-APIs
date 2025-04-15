@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<listaClientes>
+    <cliente>
+        <id>1</id>
+        <nome>Valdir</nome>
+        <altura>1.70</altura>
+    </cliente>
+    <cliente>
+        <id>2</id>
+        <nome>Simone</nome>
+        <altura>1.69</altura>
+    </cliente>
+    <cliente>
+        <id>3</id>
+        <nome>Henrique</nome>
+        <altura>1.81</altura>
+    </cliente>
+    <cliente>
+        <id>4</id>
+        <nome>Roberto</nome>
+        <altura>1.83</altura>
+    </cliente>
+</listaClientes>
