@@ -1,4 +1,6 @@
 // Finalizar: EndPoints com verificação de token para admins terem acesso a respostas diferentes.
+// JWT - JSON Web Token
+// Não armazenar dados da sessão no armazenamento do navegador. 
 
 const express = require("express");
 const knex = require("knex");
