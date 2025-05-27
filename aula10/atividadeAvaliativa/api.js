@@ -1,3 +1,5 @@
+// Finalizar: EndPoints com verificação de token para admins terem acesso a respostas diferentes.
+
 const express = require("express");
 const knex = require("knex");
 const errors = require("http-errors");
