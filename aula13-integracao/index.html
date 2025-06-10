@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api</title>
+</head>
+<body onload="buscarProdutos()">
+    <input type="text" id="txtNome" placeholder="Nome: ">
+    <input type="text" id="txtPreco" placeholder="Preco: ">
+    <button onclick="add()">Adicionar</button>
+
+    <hr>
+
+    <table border="1" id="tblProdutos">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Preco</th>
+            <th>Excluir</th>
+        </tr>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
