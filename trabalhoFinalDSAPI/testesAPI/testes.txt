@@ -1,0 +1,101 @@
+Instalar as Dependências:
+npm install express mysql2 passport passport-google-oauth20 dotenv nanoid
+Ligar o XAMPP.
+Rodar o node com o server.js
+
+http://localhost:3000/auth/google/
+Fazer cadastro com o OAuth.
+
+UPDATE users
+SET cargo = 'admin' -- ou 'chefe' ou 'supervisor'
+WHERE email = 'email-do-usuario@exemplo.com';
+Fazer o Upgrade do usuário. | Da para fazer direto no phpMyAdmin também.
+
+TESTES:
+-----------------------------------------------------------------
+Rotas para ADMs
+
+ADM - Roberto
+token - yr0gtg3Qjb9btesqVHK0H - tokenExemploADM
+id - GzdoF5e8u9GWSpYJwdDp2 - idADMDeExemplo
+-----------------------------------------------------------------
+
+Verificar todos os registros de um estagiário:
+GET http://localhost:3000/registros?user_id=aCiowh8LDzuxrORj0Cmb9 - idEstagiarioDeExemplo
+
+HEADERS:
+- Authorization: yr0gtg3Qjb9btesqVHK0H - tokenExemploADM
+- user-id: GzdoF5e8u9GWSpYJwdDp2
+
+
+VerificarRegistroEspecífico:
+GET http://localhost:3000/registros/idRegistroDeExemplo001
+
+HEADERS:
+- Authorization: yr0gtg3Qjb9btesqVHK0H - tokenExemploADM
+- user-id: GzdoF5e8u9GWSpYJwdDp2
+
+
+EditarRegistro:
+PUT http://localhost:3000/registros/idRegistroDeExemplo001
+
+HEADERS:
+- Authorization: yr0gtg3Qjb9btesqVHK0H - tokenExemploADM
+- user-id: GzdoF5e8u9GWSpYJwdDp2
+
+BODY (JSON):
+{
+  "checkin": "13:00:00",
+  "checkout": "18:00:00"
+}
+
+
+DeletarRegistro:
+DELETE http://localhost:3000/registros/idRegistroDeExemplo001
+
+HEADERS:
+- Authorization: yr0gtg3Qjb9btesqVHK0H - tokenExemploADM
+- user-id: GzdoF5e8u9GWSpYJwdDp2
+
+
+EnviarAtestado (texto):
+POST http://localhost:3000/atestados
+
+HEADERS:
+- Authorization: yr0gtg3Qjb9btesqVHK0H - tokenExemploADM
+- user-id: GzdoF5e8u9GWSpYJwdDp2
+
+BODY (JSON):
+{
+  "user_id": "aCiowh8LDzuxrORj0Cmb9", - idEstagiarioDeExemplo
+  "motivo": "Consulta médica com atestado digitalizado"
+}
+
+---------------------------------------------------------------------------
+Rotas para os Estagiários
+
+Estagiaria - Simone
+token - 4qb1bEjVxYF9tk2Kyv8Y3 - tokenExemploEST
+id - aCiowh8LDzuxrORj0Cmb9 - idEstagiarioDeExemplo
+---------------------------------------------------------------------------
+Check-in:
+POST http://localhost:3000/checkin
+
+HEADERS:
+- Authorization: 4qb1bEjVxYF9tk2Kyv8Y3 - tokenExemploEST
+
+BODY (JSON):
+{
+  "user_id": "aCiowh8LDzuxrORj0Cmb9" - idEstagiarioDeExemplo
+}
+
+Check-out:
+POST http://localhost:3000/checkout
+
+HEADERS:
+- Authorization: 4qb1bEjVxYF9tk2Kyv8Y3 - tokenExemploEST
+
+BODY (JSON):
+{
+  "user_id": "aCiowh8LDzuxrORj0Cmb9" - idEstagiarioDeExemplo
+}
